@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="animations/animate.min.css">
     <script src="wow.min.js"></script>
     <script>
-         new WOW().init();
+        new WOW().init();
     </script>
 </head>
 <body>
@@ -38,7 +38,7 @@
     <div class="login">
         <?php
         session_start();
-        if(isset($_SESSION['username'])) {
+        if (isset($_SESSION['username'])) {
             echo '<a href="profile/profile.php" class="login-btn">' . $_SESSION['username'] . '</a>';
         } else {
             echo '<a href="login/loginPage.php" class="login-btn">Войти</a>';
@@ -59,7 +59,7 @@
             <div class="overlay"></div>
             <div class="inner">
                 <div class="cont">
-                      <h2 class="title text1">EcoLifestyle</h2>
+                    <h2 class="title text1">EcoLifestyle</h2>
                 </div>
             </div>
         </div>
@@ -76,10 +76,10 @@
         <div class="carousel-cell" style="background-image: url(img/img-3.jpg);">
             <div class="overlay"></div>
             <div class="inner">
-          
-                    <h3 class="subtitle ">Экология</h3>
-                    <h2 class="title ">Природа не нуждается в нас, но мы нуждаемся в ней!</h2>
-            
+
+                <h3 class="subtitle ">Экология</h3>
+                <h2 class="title ">Природа не нуждается в нас, но мы нуждаемся в ней!</h2>
+
                 <a href="#" class="btn">подробнее</a>
             </div>
         </div>
@@ -182,7 +182,8 @@
 
     <section class="events">
         <div class="events__link">
-            <a href="#" class="events__link_active">Ближайшие</a><span class="events__sep">/</span><a href="#">Прошедшие</a>
+            <a href="#" class="events__link_active">Ближайшие</a><span class="events__sep">/</span><a
+                    href="#">Прошедшие</a>
         </div>
 
         <div class="events-container">
@@ -275,31 +276,102 @@
         <div class="section-line"></div>
     </div>
 
-<!--    <section class="categories">-->
-<!--        <div class="category">-->
-<!--            <div class="category__box">-->
-<!--                <p>Экологические технологии</p>-->
-<!--                <button class="category__button">Подробнее</button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-    <style>
-        .testo{
-            background: #00b300;
-            width: 200px;
-            height: 200px;
-            animation: tiltDate 1s ease-in-out;
-            margin: 0 auto;
-        }
+    <section class="categories">
+        <div class="category">
+            <div class="category__box">
+                <p>Экологические технологии</p>
+                <button class="category__button">Подробнее</button>
+            </div>
+        </div>
+        <div class="category">
+            <div class="category__box">
+                <p>Экологические технологии</p>
+                <button class="category__button">Подробнее</button>
+            </div>
+        </div>
+        <div class="category">
+            <div class="category__box">
+                <p>Экологические технологии</p>
+                <button class="category__button">Подробнее</button>
+            </div>
+        </div>
+    </section>
 
-        @keyframes tiltDate {
-            0% { transform: translateX(-300px);
-                opacity: 0%;}
-            100% { transform: translateX(0px);
-                opacity: 100%;}
-        }
-    </style>
-<div class="testo"></div>
+    <div class="section-name">
+        <h1>Эколятор</h1>
+        <div class="section-line"></div>
+    </div>
+
+    <section class="calculator">
+        <div class="calculator-left">
+            <div class="inputBox">
+                <input type="text" name="username" required="required" autocomplete="off">
+                <span>Введите количество потребляемого ресурса в месяц</span>
+                <i></i>
+            </div>
+            <div class="inputBox__select">
+                <select>
+                    <option value="E">Энергия</option>
+                    <option value="W">Вода</option>
+                    <option value="G">Газ</option>
+                </select>
+            </div>
+            <button class="calculator__button">Рассчитать</button>
+            <p class="calculator__notification">*Рассчеты могут изменяться в соответствии с вашим регионом</p>
+        </div>
+        <div class="calculator-sep"></div>
+        <div class="calculator-right">
+            <p class="calculator__res">Общее потребление: <span id="res1"></span></p>
+            <p class="calculator__res">Среднее потребление: <span id="res2"></span> кВт-ч в день</p>
+            <p class="calculator__res">Сравнение потребления: <span id="res3">Ваше потребление превышает на 12% среднего значения</span>
+            </p>
+        </div>
+    </section>
+
+    <section class="articles">
+        <h1>СВЕЖИЕ СТАТЬИ</h1>
+        <div class="articles-container">
+            <article class="article">
+                <img src="img/article-img.png">
+                <div class="article__box">
+                    <p>Дешевле водить электромобиль или бензиновый автомобиль?</p>
+                    <div class="article__info">
+                        <p>Экологический образ жизни</p>
+                        <time datetime="2023-03-12">12/03/2023</time>
+                    </div>
+                </div>
+            </article><article class="article">
+                <img src="img/article-img.png">
+                <div class="article__box">
+                    <p>Дешевле водить электромобиль или бензиновый автомобиль?</p>
+                    <div class="article__info">
+                        <p>Экологический образ жизни</p>
+                        <time datetime="2023-03-12">12/03/2023</time>
+                    </div>
+                </div>
+            </article><article class="article">
+                <img src="img/article-img.png">
+                <div class="article__box">
+                    <p>Дешевле водить электромобиль или бензиновый автомобиль?</p>
+                    <div class="article__info">
+                        <p>Экологический образ жизни</p>
+                        <time datetime="2023-03-12">12/03/2023</time>
+                    </div>
+                </div>
+            </article><article class="article">
+                <img src="img/article-img.png">
+                <div class="article__box">
+                    <p>Дешевле водить электромобиль или бензиновый автомобиль?</p>
+                    <div class="article__info">
+                        <p>Экологический образ жизни</p>
+                        <time datetime="2023-03-12">12/03/2023</time>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+
 </main>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
