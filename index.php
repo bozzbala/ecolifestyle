@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="slider.css">
+    <link rel="stylesheet" type="text/css" href="animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.css">
@@ -95,50 +96,50 @@
     <section class="about">
 
         <div class="about__box">
-            <div class="about__image wow animate__animated animate__fadeInLeft">
+            <div class="about__image">
             </div>
-            <div class="about__text wow animate__animated animate__fadeInRight">
+            <div class="about__text">
                 Добро пожаловать! <b>EcoLifestyle</b> покажет вам жизнь без отходов! <b>Мы</b> являемся экспертами в
                 этой области и стремимся <b>помочь людям</b>, которые хотят <b>изменить</b> свои привычки и стать более
                 <b>экологичными</b>.
             </div>
-            <div class="about__text_mobile animate__animated animate__fadeInRight"><b>Мы</b> являемся экспертами в
-                этой области и стремимся <b>помочь людям</b></div>
-        </div>
-
-        <div class="about__box ">
-            <div class="about__text_mobile wow animate__animated animate__fadeInLeft"><b>Мы</b> являемся экспертами в
-                этой области и стремимся <b>помочь людям</b></div>
-            <div class="about__text wow animate__animated animate__fadeInLeft">
-                Добро пожаловать! <b>EcoLifestyle</b> покажет вам жизнь без отходов! <b>Мы</b> являемся экспертами в
-                этой области и стремимся <b>помочь людям</b>, которые хотят <b>изменить</b> свои привычки и стать более
-                <b>экологичными</b>.
-            </div>
-            <div class="about__image about__text wow animate__animated animate__fadeInRight">
-            </div>
-        </div>
-
-        <div class="about__box">
-            <div class="about__image wow animate__animated animate__fadeInLeft">
-            </div>
-            <div class="about__text wow animate__animated animate__fadeInRight">
-                Добро пожаловать! <b>EcoLifestyle</b> покажет вам жизнь без отходов! <b>Мы</b> являемся экспертами в
-                этой области и стремимся <b>помочь людям</b>, которые хотят <b>изменить</b> свои привычки и стать более
-                <b>экологичными</b>.
-            </div>
-            <div class="about__text_mobile wow animate__animated animate__fadeInRight"><b>Мы</b> являемся экспертами в
+            <div class="about__text_mobile"><b>Мы</b> являемся экспертами в
                 этой области и стремимся <b>помочь людям</b></div>
         </div>
 
         <div class="about__box">
-            <div class="about__text_mobile about__image wow animate__animated animate__fadeInLeft"><b>Мы</b> являемся экспертами в
+            <div class="about__text_mobile"><b>Мы</b> являемся экспертами в
                 этой области и стремимся <b>помочь людям</b></div>
-            <div class="about__text wow animate__animated animate__fadeInLeft">
+            <div class="about__text slide-left">
                 Добро пожаловать! <b>EcoLifestyle</b> покажет вам жизнь без отходов! <b>Мы</b> являемся экспертами в
                 этой области и стремимся <b>помочь людям</b>, которые хотят <b>изменить</b> свои привычки и стать более
                 <b>экологичными</b>.
             </div>
-            <div class="about__image wow animate__animated animate__fadeInRight">
+            <div class="about__image">
+            </div>
+        </div>
+
+        <div class="about__box">
+            <div class="about__image">
+            </div>
+            <div class="about__text">
+                Добро пожаловать! <b>EcoLifestyle</b> покажет вам жизнь без отходов! <b>Мы</b> являемся экспертами в
+                этой области и стремимся <b>помочь людям</b>, которые хотят <b>изменить</b> свои привычки и стать более
+                <b>экологичными</b>.
+            </div>
+            <div class="about__text_mobile"><b>Мы</b> являемся экспертами в
+                этой области и стремимся <b>помочь людям</b></div>
+        </div>
+
+        <div class="about__box">
+            <div class="about__text_mobile"><b>Мы</b> являемся экспертами в
+                этой области и стремимся <b>помочь людям</b></div>
+            <div class="about__text">
+                Добро пожаловать! <b>EcoLifestyle</b> покажет вам жизнь без отходов! <b>Мы</b> являемся экспертами в
+                этой области и стремимся <b>помочь людям</b>, которые хотят <b>изменить</b> свои привычки и стать более
+                <b>экологичными</b>.
+            </div>
+            <div class="about__image">
             </div>
         </div>
     </section>
@@ -267,15 +268,31 @@
         <div class="section-line"></div>
     </div>
 
-    <section class="categories">
-        <div class="category">
-            <div class="category__box">
-                <p>Экологические технологии</p>
-                <button class="category__button">Подробнее</button>
-            </div>
-        </div>
-    </section>
+<!--    <section class="categories">-->
+<!--        <div class="category">-->
+<!--            <div class="category__box">-->
+<!--                <p>Экологические технологии</p>-->
+<!--                <button class="category__button">Подробнее</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+    <style>
+        .testo{
+            background: #00b300;
+            width: 200px;
+            height: 200px;
+            animation: tiltDate 1s ease-in-out;
+            margin: 0 auto;
+        }
 
+        @keyframes tiltDate {
+            0% { transform: translateX(-300px);
+                opacity: 0%;}
+            100% { transform: translateX(0px);
+                opacity: 100%;}
+        }
+    </style>
+<div class="testo"></div>
 </main>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>

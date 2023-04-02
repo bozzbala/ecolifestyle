@@ -132,7 +132,6 @@ MAIN
     background-color: blueviolet;
     background-image: url(img/img22.png);
     background-size: cover;
-    background-attachment: fixed;
 }
 
 .about__text{
@@ -274,17 +273,6 @@ MAIN
 
 .category{
 
-}
-
-/*
-
-Animations
-
-*/
-@keyframes tiltDate {
-    0% { transform: rotate(-3deg); }
-    50% {transform: rotate(3deg);}
-    100% { transform: rotate(0deg); }
 }
 
 @media all and (max-width: 1280px){

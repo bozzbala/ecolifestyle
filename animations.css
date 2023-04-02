@@ -1,0 +1,35 @@
+/*
+
+Animations
+
+*/
+
+.slide-left{
+  animation: slidoleft 1s ease-in-out;
+}
+
+.slide-right{
+  animation: slidoright 1s ease-in-out;
+}
+
+@keyframes slidoleft {
+  0% { transform:  translate3d(-300px, 150px, 0);
+    opacity: 0;}
+  70%{
+    opacity: 50%;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 100%;}
+}
+
+@keyframes slidoright {
+  0% { transform:  translate3d(300px, 150px, 0);
+    opacity: 0;}
+  70%{
+    opacity: 50%;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 100%;}
+}

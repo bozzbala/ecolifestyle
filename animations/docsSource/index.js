@@ -8,7 +8,7 @@ const compileAnimationList = require('./compileAnimationList');
 const templatePath = path.join(__dirname, 'template.html');
 const template = fs.readFileSync(templatePath, 'utf8');
 const outputPath = '../docs';
-const outputFile = 'index.html';
+const outputFile = 'index.php';
 
 const docs = compileMD();
 const list = compileAnimationList();
