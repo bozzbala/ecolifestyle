@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*border: 1px solid red;*/
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+
+}
+
+/*
+----------------------------------------------------------------------------------------------------
+HEADER
+----------------------------------------------------------------------------------------------------
+*/
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ECFFE8;
+    height: 80px;
+    z-index: 100;
+}
+
+.logo img {
+    width: 224px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav a {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 30px;
+    color: #333;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #00b300;
+}
+
+.login-btn {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #00b300;
+    border-radius: 30px;
+    color: #00b300;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #00b300;
+    color: #fff;
+}
+
+.login-mobile{
+    display: none;
+}
+
+.login-mobile a{
+    color: black;
+    font-size: 24px;
+}
+
+#logo-small {
+    display: none;
+    height: 30px;
+}
+
+.sidebar-open{
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+
+
+/*
+----------------------------------------------------------------------------------------------------
+MAIN
+----------------------------------------------------------------------------------------------------
+*/
+
+.section-name{
+    margin: 60px auto 0;
+    width: max-content;
+}
+
+.section-line{
+    width: 100px;
+    height: 2px;
+    background: black;
+    margin: 7px auto 0 auto;
+    border-radius: 2px;
+}
+
+.about{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.about__box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.about__image{
+    width: 400px;
+    height: 600px;
+    background-color: blueviolet;
+    background-image: url(img/img22.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.about__text{
+    width: 400px;
+    font-size: 24px;
+    line-height: 35px;
+    color: #454E47;
+}
+
+.about__text_mobile{
+    display: none;
+    width: 45%;
+}
+
+
+.learn{
+    width: 1024px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.learn__item{
+    width: 200px;
+    overflow: hidden;
+}
+
+.learn__item img{
+    height: 200px;
+    aspect-ratio: 1/1;
+    transition: 1s;
+}
+
+.learn__item img:hover{
+    transform: scale(1.05);
+}
+
+.learn__item p{
+    text-align: center;
+    color: #454E47;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+
+.events{
+    width: 1024px;
+    margin: 0 auto;
+}
+.events__link{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.events__sep{
+    margin: 0 5px;
+}
+
+.events__link a{
+    color: #696969;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.events__link_active{
+    color: #1A6D28 !important;
+    font-weight: 700;
+}
+
+.events-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.event{
+    padding: 15px;
+    width: 320px;
+    aspect-ratio: 16/10;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event__date{
+    display: flex;
+}
+
+.event__day {
+    font-size: 48px;
+    font-weight: bold;
+    color: #FF5C00;
+    transition: 0.5s;
+}
+
+.event__time{
+    color: #696969;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.event__title{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.event__btn{
+    border: none;
+    outline: none;
+    background: #71AD6C;
+    font-size: 16px;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 5px;
+    width: max-content;
+    cursor: pointer;
+}
+
+.event__error{
+    display: none;
+    font-size: 12px;
+    color: #FF0000;
+}
+
+.event:hover .event__day{
+    transform: scale(1.1);
+}
+
+
+.categories{
+    display: flex;
+    justify-content: space-between;
+    width: 1024px;
+}
+
+.category{
+
+}
+
+/*
+
+Animations
+
+*/
+@keyframes tiltDate {
+    0% { transform: rotate(-3deg); }
+    50% {transform: rotate(3deg);}
+    100% { transform: rotate(0deg); }
+}
+
+@media all and (max-width: 1280px){
+    #feedback-header{
+        display: none;
+    }
+
+    nav a{
+        margin: 0 15px;
+    }
+
+
+}
+
+@media all and (max-width: 1024px){
+    .about, .learn, .events{
+        width: 768px;
+        padding: 20px;
+    }
+
+    .about__image{
+        width: 300px;
+        height: 500px;
+    }
+
+    .learn__item{
+        width: 150px;
+    }
+
+    .learn__item img{
+        height: 150px;
+    }
+}
+
+@media all and (max-width: 992px){
+    .logo img{
+        width: 180px;
+    }
+
+    nav a{
+        font-size: 12px;
+        margin: 0 5px;
+    }
+
+    .login a.button{
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .login-mobile{
+        display: block;
+    }
+
+    .login{
+        display: none;
+    }
+    #logo-small{
+        display: block;
+    }
+
+    .logo img{
+        display: none;
+    }
+
+    .about, .learn, .events{
+        width: 480px;
+    }
+
+    .about__image{
+        height: 400px;
+        width: 45%;
+    }
+
+    .about__text{
+        display: none;
+    }
+
+    .about__text_mobile{
+        display: block;
+    }
+
+    .learn{
+        flex-wrap: wrap;
+        gap: 100px;
+    }
+
+    .learn__item{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .learn__item img{
+        width: 30%;
+        height: auto;
+    }
+
+    .section-name{
+        font-size: 12px;
+    }
+
+    .event{
+        width: 45%;
+        aspect-ratio: 16/13;
+    }
+
+    .event__day{
+        font-size: 36px;
+    }
+
+    .event__time{
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
+    .event__title{
+        font-size: 14px;
+    }
+
+    .event__btn{
+        font-size: 12px;
+    }
+
+}
+
+@media all and (max-width: 480px) {
+    nav{
+        display: none;
+    }
+
+    .logo img{
+        display: block;
+    }
+
+    #logo-small{
+        display: none;
+    }
+
+    .login-mobile{
+        display: none;
+    }
+
+    .sidebar-open{
+        display: block;
+    }
+
+    .about, .learn, .events{
+        width: 100%;
+    }
+
+    .event{
+        width: 100%;
+        aspect-ratio: 16/12;
+    }
+
+    .event__title{
+        font-size: 18px;
+    }
+
+}
