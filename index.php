@@ -36,7 +36,14 @@
         </ul>
     </nav>
     <div class="login">
-        <a href="login/loginPage.php" class="login-btn">Войти</a>
+        <?php
+        session_start();
+        if(isset($_SESSION['username'])) {
+            echo '<a href="profile/profile.php" class="login-btn">' . $_SESSION['username'] . '</a>';
+        } else {
+            echo '<a href="login/loginPage.php" class="login-btn">Войти</a>';
+        }
+        ?>
     </div>
 
     <div class="login-mobile">
