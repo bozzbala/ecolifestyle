@@ -46,7 +46,6 @@ window.addEventListener('scroll', () => {
   let texts = document.getElementsByClassName("about__text");
   let mobile = document.getElementsByClassName("about__text_mobile");
   for(let i = 0; i < elementPosition.length; i++){
-      console.log(Math.round(scrolled) + "--------------" + elementPosition[i]);
       if(Math.round(scrolled) >= elementPosition[i]-600){
           if(i%2==0){
               images[i].className = "about__image slide-left";
@@ -158,3 +157,60 @@ const sidebarToggle = () => {
         isOpen = true;
     }
 }
+
+
+let infoShow = (num) => {
+    if(num == 1){
+        document.getElementsByClassName("pop-up-category")[0].style.display = "block";
+    }
+    else if(num == 2){
+        document.getElementsByClassName("pop-up-category")[1].style.display = "block";
+    }
+    else{
+        document.getElementsByClassName("pop-up-category")[2].style.display = "block";
+    }
+}
+
+let infoClose = (num) => {
+    if(num == 1){
+        document.getElementsByClassName("pop-up-category")[0].style.display = "none";
+    }
+    else if(num == 2){
+        document.getElementsByClassName("pop-up-category")[1].style.display = "none";
+    }
+    else{
+        document.getElementsByClassName("pop-up-category")[2].style.display = "none";
+    }
+}
+
+//calendar
+const buttons = document.querySelectorAll('.calendar__button');
+const texts = document.querySelectorAll('.calendar__text');
+
+// Скрываем все тексты и показываем только для весны
+texts.forEach(text => {
+    text.style.display = 'none';
+    if (text.dataset.season === 'spring') {
+        text.style.display = 'block';
+    }
+});
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        // удаляем класс у всех кнопок
+        buttons.forEach(button => {
+            button.classList.remove('calendar__button_active');
+        });
+        // добавляем класс нажатой кнопке
+        button.classList.add('calendar__button_active');
+
+        const season = button.dataset.season;
+        // скрываем все тексты и показываем только нужный
+        texts.forEach(text => {
+            text.style.display = 'none';
+            if (text.dataset.season === season) {
+                text.style.display = 'block';
+            }
+        });
+    });
+});

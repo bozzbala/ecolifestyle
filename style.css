@@ -308,6 +308,15 @@ MAIN
     padding: 10px 50px;
     color: white;
     width: max-content;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+
+.category__button:hover{
+    background-color: #00b300;
+    transform: scale(1.05);
 }
 
 
@@ -367,17 +376,17 @@ MAIN
     height: 44px;
 }
 
-.inputBox__select select{
+.inputBox__select select {
     margin-top: 15px;
     padding: 5px 15px;
 }
 
-.inputBox__select option{
+.inputBox__select option {
     font-size: 14px;
     padding: 10px 0px;
 }
 
-.calculator{
+.calculator {
     width: 1024px;
     margin: 30px auto;
     display: flex;
@@ -385,22 +394,22 @@ MAIN
     align-items: center;
 }
 
-.calculator-left{
+.calculator-left {
     width: 48%;
 }
 
-.calculator-sep{
+.calculator-sep {
     height: 250px;
     width: 2px;
     background: #737373;
     border-radius: 2px;
 }
 
-.calculator-right{
+.calculator-right {
     width: 48%;
 }
 
-.calculator__button{
+.calculator__button {
     border: none;
     background: #71AD6C;
     border-radius: 5px;
@@ -410,12 +419,12 @@ MAIN
     margin: 20px 0px;
 }
 
-.calculator__notification{
+.calculator__notification {
     font-size: 10px;
     color: red;
 }
 
-.calculator__res{
+.calculator__res {
     width: 100%;
     border-bottom: 1px solid #679D3D;
     border-top: 1px solid #679D3D;
@@ -424,15 +433,16 @@ MAIN
     color: #686868;
 }
 
-.articles{
+.articles {
     width: 1024px;
     margin: 0 auto;
 }
 
-.articles h1{
+.articles h1 {
     color: #707070;
 }
-.articles-container{
+
+.articles-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -440,7 +450,7 @@ MAIN
     margin-top: 40px;
 }
 
-.article{
+.article {
     width: 32%;
     aspect-ratio: 400/400;
     background: white;
@@ -448,11 +458,11 @@ MAIN
     border-radius: 5px;
 }
 
-.article img{
+.article img {
     width: 100%;
 }
 
-.article__box{
+.article__box {
     height: 120px;
     padding: 20px 20px 10px;
     display: flex;
@@ -460,29 +470,29 @@ MAIN
     justify-content: space-between;
 }
 
-.article__box p{
+.article__box p {
     font-size: 16px;
     color: #10437E;
     font-weight: 700;
 }
 
-.article__info{
+.article__info {
     display: flex;
     justify-content: space-between;
 }
 
-.article__info p{
+.article__info p {
     font-size: 12px;
     color: #707070;
 }
 
-.article__info time{
+.article__info time {
     font-size: 12px;
     color: #707070;
 }
 
 
-.calendar{
+.calendar {
     width: 1024px;
     margin: 40px auto;
     display: flex;
@@ -490,15 +500,15 @@ MAIN
     align-items: center;
 }
 
-.calendar-left{
+.calendar-left {
     flex: 1;
 }
 
-.calendar-left ul{
+.calendar-left ul {
     list-style: none;
 }
 
-.calendar__button{
+.calendar__button {
     border: none;
     outline: none;
     color: #848484;
@@ -508,30 +518,30 @@ MAIN
     cursor: pointer;
 }
 
-.calendar__button_active{
+.calendar__button_active {
     border: none;
     outline: none;
     color: #848484;
     background: none;
     margin-bottom: 40px;
     font-size: 25px;
-    color:#1A6D28;
+    color: #1A6D28;
     font-weight: 700;
     cursor: pointer;
 }
 
-.calendar-right{
+.calendar-right {
     flex: 3;
 }
 
-.calendar-right ul{
+.calendar-right ul {
     list-style: none;
     height: 400px;
-    overflow-x: none;
+    overflow-x: visible;
     overflow-y: scroll;
 }
 
-.calendar__text{
+.calendar__text {
     padding: 20px;
     border-bottom: 1px solid black;
     border-left: 1px solid black;
@@ -539,30 +549,30 @@ MAIN
     font-size: 18px;
 }
 
-.section-big-name{
+.section-big-name {
     width: 1024px;
     margin: 40px auto;
 }
 
-.section-big-name h1{
+.section-big-name h1 {
     color: #1A6D28;
 }
 
-.section-big-line{
+.section-big-line {
     width: 200px;
     height: 2px;
     background: black;
     margin-top: 20px;
 }
 
-.contact{
+.contact {
     width: 1024px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
-.product-container{
+.product-container {
     width: 45%;
 }
 
@@ -572,7 +582,7 @@ MAIN
     border-radius: 5px;
 }
 
-.product a{
+.product a {
     text-decoration: none;
     color: black;
 }
@@ -607,11 +617,11 @@ MAIN
     color: white;
 }
 
-.contact form{
+.contact form {
     width: 45%;
 }
 
-.contact__submit input{
+.contact__submit input {
     padding: 10px;
     font-size: 16px;
     color: black;
@@ -698,7 +708,7 @@ MAIN
     color: #FFDAAF;
 }
 
-#sidebar{
+#sidebar {
     position: absolute;
     top: 0;
     right: 0;
@@ -707,13 +717,14 @@ MAIN
     background-color: #ECFFE8;
     transition: 0.5s;
 }
-.sidebar-open{
+
+.sidebar-open {
     display: none;
     font-size: 24px;
     margin-right: 20px;
 }
 
-.sidebar-close{
+.sidebar-close {
     height: 30px;
     color: black;
     font-size: 24px;
@@ -721,23 +732,25 @@ MAIN
     padding: 20px;
 }
 
-.sidebar-items{
+.sidebar-items {
     padding: 25px;
 }
 
-.sidebar-item{
+.sidebar-item {
     margin-top: 10px;
 }
-.sidebar-item a{
+
+.sidebar-item a {
     color: black;
     text-decoration: none;
 }
 
-.sidebar-social-links{
+.sidebar-social-links {
     position: absolute;
     bottom: 75px;
     left: 25px;
 }
+
 .sidebar-social-links a {
     display: inline-block;
     height: 40px;
@@ -755,6 +768,54 @@ MAIN
     background-color: #ffffff;
 }
 
+.pop-up-category {
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    position: fixed;
+    width: 1024px;
+    height: 90vh;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 30px;
+    overflow: scroll;
+}
+
+.pop-up-close {
+    font-size: 36px;
+    border: none;
+    background: none;
+    text-align: right;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.pop-up-close:hover{
+    background: #00b300;
+    color: white;
+    transform: scale(1.2);
+}
+
+
+
+.pop-up-category div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pop-up-text {
+    width: 48%;
+}
+
+.pop-up-category img {
+    width: 48%;
+    height: auto;
+}
+
 @media all and (max-width: 1280px) {
     #feedback-header {
         display: none;
@@ -768,7 +829,7 @@ MAIN
 }
 
 @media all and (max-width: 1024px) {
-    .about, .learn, .events, .categories, .calculator, .articles, .calendar, .contact, .section-big-name, .container {
+    .about, .learn, .events, .categories, .calculator, .articles, .calendar, .contact, .section-big-name, .container, .pop-up-category {
         width: 768px;
         padding: 20px;
     }
@@ -799,27 +860,28 @@ MAIN
         font-size: 12px;
     }
 
-    .inputBox{
+    .inputBox {
         font-size: 10px;
     }
 
-    .article{
+    .article {
         width: 48%;
     }
 
-    .product{
+    .product {
         padding-bottom: 20px;
     }
-    .product-price, .product-title{
+
+    .product-price, .product-title {
         font-size: 14px;
     }
 
-    .product-button{
+    .product-button {
         font-size: 14px;
         padding: 5px;
     }
 
-    .row{
+    .row {
         flex-wrap: wrap;
     }
 
@@ -858,7 +920,7 @@ MAIN
         display: none;
     }
 
-    .about, .learn, .events, .categories, .calculator, .articles, .calendar, .contact, .section-big-name, .container {
+    .about, .learn, .events, .categories, .calculator, .articles, .calendar, .contact, .section-big-name, .container, .pop-up-category {
         width: 480px;
     }
 
@@ -918,23 +980,23 @@ MAIN
         font-size: 12px;
     }
 
-    .inputBox{
+    .inputBox {
         padding: 10px 0;
     }
 
-    .article{
+    .article {
         width: 45%;
     }
 
-    .article__box p{
+    .article__box p {
         font-size: 14px;
     }
 
-    .article__info p{
+    .article__info p {
         display: none;
     }
 
-    .footer-col{
+    .footer-col {
         width: 48%;
     }
 }
@@ -960,7 +1022,7 @@ MAIN
         display: block;
     }
 
-    .about, .learn, .events, .categories, .calculator, .articles, .calendar, .contact, .section-big-name, .container {
+    .about, .learn, .events, .categories, .calculator, .articles, .calendar, .contact, .section-big-name, .container, .pop-up-category {
         width: 100%;
     }
 
@@ -994,60 +1056,61 @@ MAIN
         font-size: 18px;
     }
 
-    .calculator{
+    .calculator {
         flex-direction: column;
         margin-top: 10px;
         justify-content: flex-start;
     }
 
-    .calculator-left, .calculator-right{
+    .calculator-left, .calculator-right {
         width: 100%;
     }
 
-    .inputBox{
+    .inputBox {
         margin: 0px;
     }
 
-    .calculator-sep{
+    .calculator-sep {
         width: 100%;
         height: 3px;
         margin: 20px 0;
     }
 
-    .article{
+    .article {
         width: 100%;
     }
 
-    .calendar{
+    .calendar {
         flex-direction: column;
         justify-content: flex-start;
     }
 
-    .calendar-left ul{
+    .calendar-left ul {
         display: flex;
         justify-content: space-between;
     }
 
-    .calendar__button{
-        font-size: 18px;
-        margin-right: 10px;
-    }
-    .calendar__button_active{
+    .calendar__button {
         font-size: 18px;
         margin-right: 10px;
     }
 
-    .contact{
+    .calendar__button_active {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    .contact {
         flex-direction: column;
         justify-content: flex-start;
         gap: 40px;
     }
 
-    .product-container{
+    .product-container {
         width: 100%;
     }
 
-    .contact form{
+    .contact form {
         width: 100%;
     }
 
