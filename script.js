@@ -141,3 +141,20 @@ function calculate() {
 
 // Добавляем обработчик события на кнопку "Рассчитать"
 button.addEventListener('click', calculate);
+
+let isOpen = false;
+const sidebarToggle = () => {
+    if(isOpen){
+        document.getElementById("sidebar").style.width = "0px";
+        isOpen = false;
+    }
+    else{
+        if(window.innerWidth > 310){
+            document.getElementById("sidebar").style.width = "300px";
+        }
+        else{
+            document.getElementById("sidebar").style.width = "100%";
+        }
+        isOpen = true;
+    }
+}
