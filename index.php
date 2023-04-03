@@ -303,30 +303,31 @@
     </div>
 
     <section class="calculator">
-        <div class="calculator-left">
-            <div class="inputBox">
-                <input type="text" name="username" required="required" autocomplete="off">
-                <span>Введите количество потребляемого ресурса в месяц</span>
-                <i></i>
-            </div>
-            <div class="inputBox__select">
-                <select>
-                    <option value="E">Энергия</option>
-                    <option value="W">Вода</option>
-                    <option value="G">Газ</option>
-                </select>
-            </div>
-            <button class="calculator__button">Рассчитать</button>
-            <p class="calculator__notification">*Рассчеты могут изменяться в соответствии с вашим регионом</p>
-        </div>
-        <div class="calculator-sep"></div>
-        <div class="calculator-right">
-            <p class="calculator__res">Общее потребление: <span id="res1"></span></p>
-            <p class="calculator__res">Среднее потребление: <span id="res2"></span> кВт-ч в день</p>
-            <p class="calculator__res">Сравнение потребления: <span id="res3">Ваше потребление превышает на 12% среднего значения</span>
-            </p>
-        </div>
-    </section>
+  <div class="calculator-left">
+    <div class="inputBox">
+      <input type="text" name="resource" required="required" autocomplete="off">
+      <span>Введите количество потребляемого ресурса в месяц</span>
+      <i></i>
+    </div>
+    <div class="inputBox__select">
+      <select name="resource-type">
+        <option value="">Выберите тип ресурса</option>
+        <option value="E">Энергия</option>
+        <option value="W">Вода</option>
+        <option value="G">Газ</option>
+      </select>
+    </div>
+    <button class="calculator__button">Рассчитать</button>
+    <p class="calculator__notification">*Рассчеты могут изменяться в соответствии с вашим регионом</p>
+    <p class="calculator__notification">*Рассчет идет только для 1 человека</p>
+  </div>
+  <div class="calculator-sep"></div>
+  <div class="calculator-right">
+    <p class="calculator__res">Общее потребление: <span id="res1"></span></p>
+    <p class="calculator__res">Среднее потребление: <span id="res2"></span></p>
+    <p class="calculator__res">Сравнение потребления: <span id="res3">Выберите тип ресурса и введите количество потребляемого ресурса в месяц, чтобы увидеть результаты</span></p>
+  </div>
+</section>
 
     <section class="articles">
         <h1>СВЕЖИЕ СТАТЬИ</h1>
