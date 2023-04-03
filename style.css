@@ -128,9 +128,10 @@ MAIN
 .about__image {
     width: 400px;
     height: 600px;
-    background-color: blueviolet;
+    background-color: gray;
     background-image: url(img/img22.png);
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .about__text {
