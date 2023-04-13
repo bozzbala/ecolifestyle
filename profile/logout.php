@@ -9,6 +9,6 @@ session_unset();
 session_destroy();
 
 // Перенаправляем на страницу входа
-header("location: ../index.php");
+header("location: /");
 exit;
 ?>

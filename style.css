@@ -459,28 +459,32 @@ MAIN
     border-radius: 5px;
     overflow: hidden;
 }
-
-.article img {
+.article-img {
+    height: 70%;
+    overflow: hidden;
     width: 100%;
+    display: flex;
+    justify-content: center;
     transition: 2s;
-}
-
-.article:hover img{
-    transform: scale(1.1);
+    background-size: cover;
+    background-position: center;
 }
 
 .article__box {
     height: 120px;
     padding: 20px 20px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-.article__box p {
+.article__box a {
     font-size: 16px;
     color: #10437E;
     font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.article__box a:hover{
+    font-size: 18px;
+    color: black;
 }
 
 .article__info {
@@ -488,16 +492,34 @@ MAIN
     justify-content: space-between;
 }
 
-.article__info p {
-    font-size: 12px;
-    color: #707070;
-}
-
 .article__info time {
     font-size: 12px;
     color: #707070;
+    margin-top: 20px;
 }
 
+
+.arti{
+    width: 80%;
+    margin: 120px auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.arti__text{
+    width: 55%;
+}
+.arti__text p{
+    margin-top: 20px;
+}
+
+.arti__img{
+    width: 40%;
+}
+.arti__img img{
+    width: 100%;
+}
 
 .calendar {
     width: 1024px;

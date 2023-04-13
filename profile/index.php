@@ -2,8 +2,12 @@
 // Подключение к базе данных
 include '../connection.php';
 
+
 // Проверка, вошел ли пользователь в систему
 session_start();
+if(!isset($_SESSION['id'])){
+    header('Location: /login/loginPage.php');
+}
 
 
 // Получение данных о пользователе из базы данных
@@ -17,99 +21,58 @@ $events = mysqli_query($conn,"SELECT * FROM events");
 
 $articles = mysqli_query($conn,"SELECT * FROM articles");
 
-// Обновление пароля и email
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $password = $_POST['password'];
-    $password_confirm = $_POST['password_confirm'];
-    $email = $_POST['email'];
-
-    $errors = array();
-
-    // Проверка, чтобы оба поля для пароля были заполнены
-    if (empty($password) || empty($password_confirm)) {
-        $errors[] = "Пожалуйста, заполните поля для пароля.";
-    }
-
-    // Проверка, чтобы пароли совпадали
-    if ($password != $password_confirm) {
-        $errors[] = "Введенные пароли не совпадают.";
-    }
-
-    // Проверка на правильный формат email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Неправильный формат email.";
-    }
-
-    // Если нет ошибок, обновляем пароль и email в базе данных
-    if (empty($errors)) {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("UPDATE users SET password = ?, email = ? WHERE id = ?");
-        $stmt->bind_param("ssi", $hashed_password, $email, $user_id);
-        $stmt->execute();
-
-        // Обновление данных о пользователе в $_SESSION
-        $_SESSION['email'] = $email;
-
-        $success = "Пароль и email обновлены успешно.";
-    }
-}
-
+$events_prev = mysqli_query($conn, "SELECT * FROM events WHERE happened='1'");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Профиль пользователя</title>
     <link rel="stylesheet" type="text/css" href="profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
 <div class="profile-container">
-    <!--  <div>
-        <h1>Профиль пользователя</h1>
-        <?php if (isset($success)) { ?>
-            <div class="success"><?php echo $success; ?></div>
-        <?php } ?>
-        <h2>Информация о пользователе</h2>
-        <p><strong>Имя пользователя:</strong> <?php echo $row['username']; ?></p>
-        <p><strong>Email:</strong> <?php echo $row['email']; ?></p>
-        <h2>Изменение пароля и email</h2>
-        <?php if (!empty($errors)) { ?>
-            <div class="errors">
-                <?php foreach ($errors as $error) {
-        echo "<div>" . $error . "</div>";
-    } ?>
-            </div>
-        <?php } ?>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <label>Новый пароль:</label>
-            <input type="password" name="password" placeholder="Введите новый пароль">
-            <label>Подтвердите новый пароль:</label>
-            <input type="password" name="confirm_password" placeholder="Подтвердите новый пароль">
-            <label>Новый email:</label>
-            <input type="email" name="email" value="<?php echo $row['email']; ?>">
-            <input type="submit" name="submit" value="Сохранить">
-        </form>
-        <a href="logout.php" class="logout-btn">Выйти из аккаунта</a>
-        </div> -->
-    <nav>
+    <nav class="d-flex mb-5">
         <div class="menu"><a href="#list">Таблица</a></div>
-        <div class="menu"><a href="#add">Добавить новые данные</a></div>
+        <div class="menu mx-3"><a href="#add">Добавить новые данные</a></div>
+        <div><a href="logout.php" class="logout-btn">Выйти из аккаунта</a></div>
     </nav>
-    <div class="profile">
+
+
+    <div class="profile mb-5">
         <h1><?php echo $row['username'] ?></h1>
         <div class=""><?php echo $row['email'] ?></div>
     </div>
 
-    <div id="list" class="list-container">
+    <div class="dashboard d-flex justify-content-between">
+        <div class="dashboard-item">
+            <h3>Статьи</h3>
+            <div class="dashboard-item__number text-info"><?php echo mysqli_num_rows($articles) ?></div>
+        </div>
+        <div class="dashboard-item">
+            <h3>События</h3>
+            <div class="dashboard-item__number text-success"><?php echo mysqli_num_rows($events) ?></div>
+        </div>
+        <div class="dashboard-item">
+            <h3>Прошедшие события</h3>
+            <div class="dashboard-item__number text-warning"><?php echo mysqli_num_rows($events_prev) ?></div>
+        </div>
+    </div>
+
+    <div id="list" class="list-container mt-5">
         <div class="list">
             <h1>События</h1>
-            <table>
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>Text</th>
-                    <th>Date</th>
+                    <th>Название</th>
+                    <th>Текст</th>
+                    <th>Дата</th>
+                    <th>Прошел</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -121,6 +84,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td><?php echo $event['title'] ?></td>
                     <td><?php echo $event['text'] ?></td>
                     <td><?php echo $event['date'] ?></td>
+                    <td><?php
+                        if($event['happened'] == '1'){
+                            echo 'Да';
+                        }
+                        else{
+                            echo 'Нет';
+                        }
+                         ?></td>
                 </tr>
                 <?php } ?>
                 </tbody>
@@ -128,13 +99,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="list">
             <h1>Статьи</h1>
-            <table>
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>Text</th>
-                    <th>Date</th>
+                    <th>Название</th>
+                    <th>Текст</th>
+                    <th>Дата</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -145,32 +116,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <td><?php echo $article['id'] ?></td>
                         <td><?php echo $article['title'] ?></td>
                         <td><?php echo $article['text'] ?></td>
-                        <td><?php echo $article['date'] ?></td>
+                        <td><?php echo $article['created_at'] ?></td>
                     </tr>
                 <?php } ?>
                 </tbody>
             </table>
         </div>
     </div>
-
+    <hr>
     <div class="add-container" id="add">
         <div class="add-item">
-            <form>
-                <input type="text" placeholder="Название статьи">
-                <br><br>
-                <textarea rows="10" placeholder="Текст"></textarea>
-                <br><br>
-                <input type="date">
-                <br><br>
+            <h3>Добавить новое событие</h3>
+            <form action="/profile/addEvent.php" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Название</label>
+                    <input type="text" name="title" placeholder="Название статьи" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Текст события</label>
+                    <textarea rows="10" name="text" placeholder="Текст" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Дата и время</label>
+                    <input class="form-control" type="datetime-local" name="date" multiple>
+                </div>
                 <input type="submit" value="Отправить">
             </form>
         </div>
         <div class="add-item">
-            <form>
-                <input type="title" placeholder="Название статьи">
-                <br><br>
-                <textarea rows="10" placeholder="Текст"></textarea>
-                <br><br>
+            <h3>Добавить новую статью</h3>
+            <form action="/profile/addArticle.php" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Название</label>
+                    <input type="text" name="title" placeholder="Название статьи" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Текст статьи</label>
+                    <textarea rows="10" name="text" placeholder="Текст" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="files" class="form-label">Картинки для статьи</label>
+                    <input class="form-control" type="file" name="files[]" multiple>
+                </div>
                 <input type="submit" value="Отправить">
             </form>
         </div>

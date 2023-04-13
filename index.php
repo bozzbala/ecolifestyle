@@ -1,3 +1,9 @@
+<?php
+    include 'connection.php';
+    $events = mysqli_query($conn, "SELECT * FROM events");
+    $articles = mysqli_query($conn,"SELECT * FROM articles");
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -21,7 +27,7 @@
 <body>
 <header>
     <div class="logo">
-        <img src="img/logo.png" alt="Логотип">
+        <a href="/"><img src="img/logo.png" alt="Логотип"></a>
     </div>
     <div>
         <img src="img/logo-small.png" alt="Логотип" id="logo-small">
@@ -201,89 +207,31 @@
             <a href="#" class="events__link_active">Ближайшие</a><span class="events__sep">/</span><a
                     href="#">Прошедшие</a>
         </div>
-
         <div class="events-container">
+            <?php
+                while($row = mysqli_fetch_assoc($events)){
+                    if($row['happened'] == 0){
+            ?>
             <div class="event">
                 <div class="event__date">
                     <div class="event__day">
-                        <time datetime="2023-02-25">25</time>
+                        <time datetime="<?php echo $row['date'] ?>"><?php
+                            $date = new DateTime($row['date']);
+                            echo date_format($date, "d"); ?></time>
                     </div>
                     <div class="event__time">
-                        <time datetime="2023-02-25">февраля</time>
-                        <br>
-                        <time datetime="18:00">18:00-21:00</time>
+                        <time datetime="<?php echo $row['date'] ?>"><?php echo date_format($date, "F") ?></time>
+                        <br><br>
+                        <time datetime="<?php echo $row['date'] ?>"><?php echo date_format($date, "G:i")?></time>
                     </div>
                 </div>
 
-                <p class="event__title">EcoCareers Summit Series 2023</p>
+                <p class="event__title"><?php echo $row['title'] ?></p>
 
                 <button class="event__btn">Уведомить меня</button>
                 <p class="event__error">Для регистрации нужно войти в аккаунт</p>
             </div>
-            <div class="event">
-                <div class="event__date">
-                    <div class="event__day">
-                        <time datetime="2023-02-25">22</time>
-                    </div>
-                    <div class="event__time">
-                        <time datetime="2023-02-25">февраля</time>
-                        <br>
-                        <time datetime="18:00">18:00-21:00</time>
-                    </div>
-                </div>
-
-                <p class="event__title">EcoCareers Summit Series 2023</p>
-
-                <button class="event__btn">Уведомить меня</button>
-            </div>
-            <div class="event">
-                <div class="event__date">
-                    <div class="event__day">
-                        <time datetime="2023-02-25">18</time>
-                    </div>
-                    <div class="event__time">
-                        <time datetime="2023-02-25">февраля</time>
-                        <br>
-                        <time datetime="18:00">18:00-21:00</time>
-                    </div>
-                </div>
-
-                <p class="event__title">EcoCareers Summit Series 2023</p>
-
-                <button class="event__btn">Уведомить меня</button>
-            </div>
-            <div class="event">
-                <div class="event__date">
-                    <div class="event__day">
-                        <time datetime="2023-02-25">14</time>
-                    </div>
-                    <div class="event__time">
-                        <time datetime="2023-02-25">февраля</time>
-                        <br>
-                        <time datetime="18:00">18:00-21:00</time>
-                    </div>
-                </div>
-
-                <p class="event__title">EcoCareers Summit Series 2023</p>
-
-                <button class="event__btn">Уведомить меня</button>
-            </div>
-            <div class="event">
-                <div class="event__date">
-                    <div class="event__day">
-                        <time datetime="2023-02-25">10</time>
-                    </div>
-                    <div class="event__time">
-                        <time datetime="2023-02-25">февраля</time>
-                        <br>
-                        <time datetime="18:00">18:00-21:00</time>
-                    </div>
-                </div>
-
-                <p class="event__title">EcoCareers Summit Series 2023</p>
-
-                <button class="event__btn">Уведомить меня</button>
-            </div>
+            <?php }}?>
         </div>
     </section>
 
@@ -440,132 +388,6 @@
             <img src="img/category-3.png">
         </div>
     </div>
-    <div class="pop-up-category">
-        <button class="pop-up-close" onclick="infoClose(4)"><i class="fas fa-times"></i></button>
-        <div>
-            <section class="pop-up-text">
-                <h1>Дешевле водить электромобиль или бензиновый автомобиль?</h1>
-                <p>
-                    Определить, дешевле ли водить электромобиль или бензиновый автомобиль, зависит от многих факторов,
-                    таких как стоимость приобретения автомобиля, стоимость зарядки или заправки, стоимость технического
-                    обслуживания и ремонта, а также стоимость страховки. В этой статье мы рассмотрим каждый из этих
-                    факторов и попытаемся ответить на вопрос, какой тип автомобиля является более экономичным.
-                    <br><br>
-                <h4>Стоимость приобретения</h4>
-                Стоимость электромобилей обычно выше, чем у бензиновых автомобилей той же категории. Однако, существуют
-                программы государственной поддержки, которые могут существенно снизить стоимость покупки электромобиля.
-                Кроме того, электромобили обычно имеют более низкие эксплуатационные расходы, что может окупиться в
-                будущем.
-                <br><br>
-                <h4>Стоимость зарядки или заправки</h4>
-                Электромобили, как правило, обходятся дешевле в плане затрат на зарядку по сравнению с затратами на
-                заправку бензином. В зависимости от местности и тарифной политики региона, зарядка электромобиля может
-                обойтись в 2-3 раза дешевле, чем заправка бензином.
-                <br><br>
-                <h4>Стоимость технического обслуживания и ремонта</h4>
-                Техническое обслуживание и ремонт электромобилей обычно проще и дешевле, чем у бензиновых автомобилей.
-                Это связано с тем, что электромобили имеют меньше движущихся деталей, что снижает риск поломок и
-                необходимость их замены.
-                <br><br>
-                <h4>Стоимость страховки</h4>
-                Стоимость страховки электромобилей может быть ниже, чем у бензиновых автомобилей. Это связано с тем, что
-                электромобили обычно менее склонны к авариям и имеют меньшую стоимость восстановления после аварии.
-                <br><br>
-                В целом, стоимость эксплуатации электромобиля может быть дешевле, чем у бензинового автомобиля, но это
-                зависит от конкретной ситуации
-                </p>
-            </section>
-            <img src="img/article-img.png">
-        </div>
-    </div>
-    <div class="pop-up-category">
-        <button class="pop-up-close" onclick="infoClose(5)"><i class="fas fa-times"></i></button>
-        <div>
-            <section class="pop-up-text">
-                <h1>В чем преимущества умного счетчика?</h1>
-                <p>
-                    Умный счетчик - это счетчик потребления электроэнергии, который оснащен современными технологиями,
-                    позволяющими получать детальную информацию о потреблении электроэнергии в режиме реального времени.
-                    Преимущества умного счетчика следующие:
-                    <br><br>
-                    Экономия электроэнергии
-                    Умный счетчик позволяет контролировать свое потребление электроэнергии в режиме реального времени и
-                    точно знать, сколько энергии используется в определенный момент времени. Это помогает оптимизировать
-                    потребление энергии, сокращать излишнее потребление и, таким образом, экономить на счетах за
-                    электроэнергию.
-                    <br><br>
-                    Удобство использования
-                    Умный счетчик имеет дисплей или возможность просмотра информации в мобильном приложении, что
-                    позволяет в режиме реального времени отслеживать потребление электроэнергии и принимать меры для
-                    экономии. Также, умный счетчик может быть удаленно управляемым, что дает возможность управлять
-                    потреблением энергии из любой точки мира, где есть интернет.
-                    <br><br>
-                    Увеличение надежности и безопасности
-                    Умный счетчик обладает более высокой надежностью и безопасностью, чем традиционный счетчик, так как
-                    он может быстро обнаруживать неисправности и отправлять сообщения об этом оператору сети
-                    электропитания. Это помогает операторам сети быстро устранять неисправности и предотвращать аварии,
-                    что повышает надежность и безопасность работы сети.
-                    <br><br>
-                    Автоматический сбор показаний
-                    Умный счетчик автоматически собирает показания потребления электроэнергии, что снижает количество
-                    ошибок и несоответствий, связанных с вручную введенными показаниями. Это также снижает количество
-                    работ по сбору показаний и уменьшает вероятность мошенничества с показаниями.
-                </p>
-            </section>
-            <img src="img/article-4.png">
-        </div>
-    </div>
-    <div class="pop-up-category">
-        <button class="pop-up-close" onclick="infoClose(6)"><i class="fas fa-times"></i></button>
-        <div>
-            <section class="pop-up-text">
-                <h1>Все, что вам нужно знать о зеленых технологиях в 2023 году</h1>
-                <p>
-                    Зеленые технологии – это технологии, которые создаются с целью уменьшения воздействия на окружающую
-                    среду и уменьшения углеродного следа. В 2023 году зеленые технологии все еще будут находиться в
-                    центре внимания и будут развиваться быстрыми темпами, поскольку страны всего мира стремятся к
-                    достижению целей устойчивого развития и сокращения выбросов парниковых газов.
-                    <br><br>
-                    Вот некоторые из самых актуальных и перспективных зеленых технологий в 2023 году:
-                    <br><br>
-                    Энергия от ветра
-                    Энергия от ветра – это один из самых популярных источников возобновляемой энергии в мире, который
-                    производит электроэнергию с помощью вращающихся ветряных турбин. Кроме того, энергия от ветра имеет
-                    меньший негативный экологический след, чем традиционные источники энергии, такие как газ, нефть и
-                    уголь.
-                    <br><br>
-                    Энергия от солнца
-                    Энергия от солнца – это еще один популярный источник возобновляемой энергии, который использует
-                    солнечные панели для преобразования солнечного света в электроэнергию. Энергия от солнца является
-                    безопасной, чистой и надежной формой энергии, которая не загрязняет окружающую среду.
-                    <br><br>
-                    Электромобили
-                    Электромобили – это транспортные средства, которые используют электрический двигатель вместо
-                    традиционного бензинового или дизельного двигателя. Электромобили имеют меньший углеродный след, чем
-                    традиционные автомобили, и способствуют сокращению выбросов парниковых газов.
-                </p>
-            </section>
-            <img src="img/article-3.png">
-        </div>
-    </div>
-    <div class="pop-up-category">
-        <button class="pop-up-close" onclick="infoClose(7)"><i class="fas fa-times"></i></button>
-        <div>
-            <section class="pop-up-text">
-                <h1>Пять ключевых слов со второй недели COP27</h1>
-                <p>
-                <ul>
-                    <li>Углеродный след</li>
-                    <li>План действий по климату</li>
-                    <li>Эмиссионные кредиты</li>
-                    <li>Возобновляемая энергия</li>
-                    <li>Сотрудничество международного сообщества</li>
-                </ul>
-                </p>
-            </section>
-            <img src="img/article-2.png">
-        </div>
-    </div>
 
     <div class="section-name">
         <h1>Эколятор</h1>
@@ -603,46 +425,26 @@
     <section id="news" class="articles">
         <h1>СВЕЖИЕ СТАТЬИ</h1>
         <div class="articles-container">
-            <article class="article" onclick="infoShow(4)">
-                <img src="img/article-img.png">
+            <?php
+            while($row = mysqli_fetch_assoc($articles)){
+            ?>
+            <article class="article">
+                <div class="article-img" style="background-image: url('<?php echo "./db/" . strtok($row['image_url'], " "); ?>'">
+
+                </div>
                 <div class="article__box">
-                    <p>Дешевле водить электромобиль или бензиновый автомобиль?</p>
+                    <a href="/articles.php?id=<?php echo $row['id'] ?>"><?php echo $row['title'] ?></a>
                     <div class="article__info">
-                        <p>Экологический образ жизни</p>
-                        <time datetime="2023-03-12">12/03/2023</time>
+                        <time datetime="2023-03-12">
+                            <?php
+                            $date = new DateTime($row['created_at']);
+                            echo date_format($date, 'd/m/y H:i');
+                            ?>
+                        </time>
                     </div>
                 </div>
             </article>
-            <article class="article" onclick="infoShow(5)">
-                <img src="img/article-4.png">
-                <div class="article__box">
-                    <p>В чем преимущества умного счетчика?</p>
-                    <div class="article__info">
-                        <p>Экологический образ жизни</p>
-                        <time datetime="2023-03-03">3/03/2023</time>
-                    </div>
-                </div>
-            </article>
-            <article class="article" onclick="infoShow(6)">
-                <img src="img/article-3.png">
-                <div class="article__box">
-                    <p>Все, что вам нужно знать о зеленых технологиях в 2023 году</p>
-                    <div class="article__info">
-                        <p>Экологические технологии</p>
-                        <time datetime="2023-02-28">28/02/2023</time>
-                    </div>
-                </div>
-            </article>
-            <article class="article" onclick="infoShow(7)">
-                <img src="img/article-2.png">
-                <div class="article__box">
-                    <p>Пять ключевых слов со второй недели COP27</p>
-                    <div class="article__info">
-                        <p>Экологический образ жизни</p>
-                        <time datetime="2023-02-24">24/02/2023</time>
-                    </div>
-                </div>
-            </article>
+            <?php } ?>
         </div>
     </section>
 

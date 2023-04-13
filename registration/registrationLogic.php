@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
             $_SESSION['username'] = $row['username'];
             $_SESSION['email'] = $row['email'];
             // Запоминаем имя пользователя в сессии
-            header("Location: ../index.php");
+            header("Location: /profile");
         } else {
             echo "Ошибка: " . mysqli_error($conn);
         }
