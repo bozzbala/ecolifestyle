@@ -1,17 +1,7 @@
 <?php
 session_start();
-
 // Подключаемся к базе данных MySQL
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sitehack";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
+include '../connection.php';
 // Обработка данных формы логина
 if(isset($_POST['submit'])){
     $username = $_POST['username'];
@@ -27,7 +17,7 @@ if(isset($_POST['submit'])){
             $_SESSION['id'] = $row['id'];
             $_SESSION['email'] = $row['email'];
 
-            header("Location: /"); // Перенаправление на страницу index.php
+            header("Location: /profile"); // Перенаправление на страницу index.php
         } else {
             echo "Неверный пароль.";
         }

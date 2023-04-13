@@ -39,7 +39,7 @@
         <?php
         session_start();
         if (isset($_SESSION['username'])) {
-            echo '<a href="profile/profile.php" class="login-btn">' . $_SESSION['username'] . '</a>';
+            echo '<a href="profile/index.php" class="login-btn">' . $_SESSION['username'] . '</a>';
         } else {
             echo '<a href="login/loginPage.php" class="login-btn">Войти</a>';
         }
@@ -63,7 +63,7 @@
                 <?php
                 session_start();
                 if (isset($_SESSION['username'])) {
-                    echo '<a href="profile/profile.php" class="login-btn">' . $_SESSION['username'] . '</a>';
+                    echo '<a href="profile/index.php" class="login-btn">' . $_SESSION['username'] . '</a>';
                 } else {
                     echo '<a href="login/loginPage.php" class="login-btn">Войти</a>';
                 }
@@ -196,7 +196,7 @@
         <div class="section-line"></div>
     </div>
 
-    <section class="events">
+    <section class="events wow animate__animated animate__fadeInBottomLeft">
         <div class="events__link">
             <a href="#" class="events__link_active">Ближайшие</a><span class="events__sep">/</span><a
                     href="#">Прошедшие</a>
@@ -292,7 +292,7 @@
         <div class="section-line"></div>
     </div>
 
-    <section class="categories">
+    <section class="categories wow animate__animated animate__fadeInBottomRight">
         <div id="tech" class="category">
             <div class="category__box">
                 <p>Экологические технологии</p>

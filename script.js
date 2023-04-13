@@ -37,43 +37,6 @@ const hideHeader = () => {
     }
 }
 
-
-// const aboutBox = document.getElementsByClassName('about__box');
-//
-// window.addEventListener('scroll', () => {
-//     const scrolled = document.documentElement.scrollTop;
-//     let elementPosition = [aboutBox[0].offsetTop, aboutBox[1].offsetTop, aboutBox[2].offsetTop, aboutBox[3].offsetTop];
-//     let images = document.getElementsByClassName("about__image");
-//     let texts = document.getElementsByClassName("about__text");
-//     let mobile = document.getElementsByClassName("about__text_mobile");
-//     for (let i = 0; i < elementPosition.length; i++) {
-//         if (Math.round(scrolled) >= elementPosition[i] - 600) {
-//             if (i % 2 == 0) {
-//                 images[i].className = "about__image slide-left";
-//                 texts[i].className = "about__text slide-right";
-//                 mobile[i].className = "about__text_mobile slide-right";
-//             } else {
-//                 images[i].className = "about__image slide-right";
-//                 texts[i].className = "about__text slide-left";
-//                 mobile[i].className = "about__text_mobile slide-left";
-//             }
-//         } else if (scrolled < elementPosition[i] - 600) {
-//             if (i % 2 == 0) {
-//                 images[i].className = "about__image";
-//                 texts[i].className = "about__text";
-//                 mobile[i].className = "about__text_mobile";
-//             } else {
-//                 images[i].className = "about__image";
-//                 texts[i].className = "about__text";
-//                 mobile[i].className = "about__text_mobile";
-//             }
-//         }
-//
-//     }
-// })
-
-
-
 //calc
 
 
@@ -152,6 +115,7 @@ const sidebarToggle = () => {
 }
 
 
+// Открыть pop-up-category
 let infoShow = (num) => {
     if (num == 1) {
         document.getElementsByClassName("pop-up-category")[0].style.display = "block";
@@ -170,6 +134,8 @@ let infoShow = (num) => {
     }
 }
 
+
+// Закрыть pop-up-category
 let infoClose = (num) => {
     if (num == 1) {
         document.getElementsByClassName("pop-up-category")[0].style.display = "none";
@@ -222,7 +188,7 @@ buttons.forEach(button => {
 
 //alert
 // Получаем кнопку "Уведомить меня"
-var notifyButton = document.querySelectorAll('.event__btn');
+let notifyButton = document.querySelectorAll('.event__btn');
 
 // Добавляем обработчик клика на кнопку
 for (let i = 0; i < notifyButton.length; i++) {
