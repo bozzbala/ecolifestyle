@@ -28,7 +28,8 @@ $row = mysqli_fetch_assoc($result);
 //
 //$events_id = str_split_by_space($row['events']);
 
-$events_id = preg_split("/[\s,]+/", $row['events']);
+$events_id = preg_split("[\s]", $row['events']);
+print_r($events_id);
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,6 +69,9 @@ $events_id = preg_split("/[\s,]+/", $row['events']);
             <tbody>
             <?php
             foreach($events_id as $event) {
+                if($event == null){
+                    continue;
+                }
                 $sortedEvent = mysqli_query($conn,"SELECT * FROM events WHERE id='$event'");
                 $result = mysqli_fetch_assoc($sortedEvent);
                 ?>
