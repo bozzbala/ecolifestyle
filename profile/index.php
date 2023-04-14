@@ -9,6 +9,10 @@ if(!isset($_SESSION['id'])){
     header('Location: /login/loginPage.php');
 }
 
+if(!$_SESSION['admin']){
+    header('Location: /profile/profile.php');
+}
+
 
 // Получение данных о пользователе из базы данных
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");

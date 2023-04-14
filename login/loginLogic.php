@@ -16,6 +16,8 @@ if(isset($_POST['submit'])){
             $_SESSION['username'] = $row['username']; // Запоминаем имя пользователя в сессии
             $_SESSION['id'] = $row['id'];
             $_SESSION['email'] = $row['email'];
+            if($row['admin'] == 1) $_SESSION['admin'] = true;
+            else $_SESSION['admin'] = false;
 
             header("Location: /profile"); // Перенаправление на страницу index.php
         } else {

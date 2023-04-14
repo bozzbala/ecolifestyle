@@ -228,7 +228,10 @@
 
                 <p class="event__title"><?php echo $row['title'] ?></p>
 
-                <button class="event__btn">Уведомить меня</button>
+                <form method="post" action="/addEvent.php">
+                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>"/>
+                    <button class="event__btn" type="submit">Уведомить меня</button>
+                </form>
                 <p class="event__error">Для регистрации нужно войти в аккаунт</p>
             </div>
             <?php }}?>
